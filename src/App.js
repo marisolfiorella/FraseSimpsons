@@ -19,9 +19,13 @@ function App() {
     const resultado = await respuesta.json();
     console.log(respuesta);
     console.log(resultado[0]);
+
+    setTimeout(()=>{
+      setPersonaje(resultado[0]);
+      setCargando(false);
+
+    }, 2500);
     //guardar objeto dentro del state
-    setPersonaje(resultado[0]);
-    setCargando(false);
   }
   //operador ternario (condicion) ? ( lo que quiero hacer si la condicion es verdadera) : (lo que quiero que haga mi programa si la condicion es falsa )
   const mostrarComponente = cargando === true ? ( <Spinner></Spinner> ) : (<Frase personaje={personaje}></Frase>);
